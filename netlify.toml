@@ -7,3 +7,10 @@
   NODE_VERSION = "20"
   HUGO_ENV = "production"
   HUGO_ENABLEGITINFO = "true"
+
+# force https + apex (no www)
+[[redirects]]
+  from = "https://www.salvaginghistory.com/*"
+  to = "https://salvaginghistory.com/:splat"
+  status = 301
+  force = true
