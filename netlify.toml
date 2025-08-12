@@ -1,8 +1,10 @@
 [build]
-  command = "git submodule sync && git submodule update --init --recursive && hugo config && hugo --theme hextra --themesDir themes"
+  command = "git submodule sync && git submodule update --init --recursive && if [ -f package-lock.json ]; then npm ci; else npm i --no-audit --no-fund; fi && hugo --minify --verbose --theme hextra --themesDir themes"
   publish = "public"
 
 [build.environment]
   HUGO_VERSION = "0.127.0"
+  NODE_VERSION = "20"
   HUGO_ENV = "production"
   HUGO_ENABLEGITINFO = "true"
+
