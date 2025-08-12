@@ -1,5 +1,5 @@
 [build]
-  command = "git submodule sync && git submodule update --init --recursive && hugo"
+  command = "git submodule sync && git submodule update --init --recursive && hugo config && hugo --theme hextra --themesDir themes"
   publish = "public"
 
 [build.environment]
