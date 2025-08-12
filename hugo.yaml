@@ -2,7 +2,6 @@ baseURL: "https://salvaginghistory.com/"
 title: "Salvaging History"
 languageCode: en-us
 enableRobotsTXT: true
-
 theme: hextra
 
 module:
