@@ -28,3 +28,17 @@ menus:
     - name: Contact
       pageRef: /contact
       weight: 40
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+    extensions:
+      linkify: true
+      strikethrough: true
+      table: true
+      taskList: true
+  highlight:
+    codeFences: true
+    noClasses: true
+    style: monokai
