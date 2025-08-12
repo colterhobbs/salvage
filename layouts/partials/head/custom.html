@@ -1,0 +1,15 @@
+<!-- Favicons -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- Social preview (uses page image, else site default) -->
+{{- $og := "" -}}
+{{- with .Params.images }}{{ $og = (index . 0) }}{{ else }}
+  {{- with site.Params.images }}{{ $og = (index . 0) }}{{ end }}
+{{- end -}}
+{{- if $og }}
+  <meta property="og:image" content="{{ $og }}">
+  <meta name="twitter:card" content="summary_large_image">
+{{- end }}

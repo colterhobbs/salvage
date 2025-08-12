@@ -13,6 +13,13 @@ params:
       text: "Salvaging History"
   footer:
     show: true
+  images:
+    - "/images/og.jpg"
+  navbar:
+    logo:
+      text: "Salvaging History"
+  footer:
+    show: true
 
 menus:
   main:

@@ -1,0 +1,21 @@
+{{- $section := .Get "section" | default "projects" -}}
+{{- $sec := site.GetPage (printf "/%s" $section) -}}
+{{- if and $sec (gt (len $sec.Pages) 0) -}}
+<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  {{- range $sec.Pages.ByDate.Reverse -}}
+    {{- $img := "" -}}
+    {{- with .Params.images }}{{ $img = (index . 0) }}{{ else }}
+      {{- with .Resources.GetMatch "featured*" }}{{ $img = .RelPermalink }}{{ end }}
+    {{- end -}}
+    <a class="block rounded-xl border p-5 hover:shadow-md transition" href="{{ .RelPermalink }}">
+      {{- if $img -}}
+        <img src="{{ $img }}" alt="{{ .Title }}" class="mb-4 w-full h-40 object-cover rounded-lg">
+      {{- end -}}
+      <h3 class="text-xl font-semibold mb-1">{{ .Title }}</h3>
+      <p class="text-sm text-gray-600">{{ .Summary | plainify | truncate 120 }}</p>
+    </a>
+  {{- end -}}
+</div>
+{{- else -}}
+<p>No {{ $section }} yet. Check back soon.</p>
+{{- end -}}
